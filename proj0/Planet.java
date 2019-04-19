@@ -53,4 +53,54 @@ public class Planet
 		double forceY = this.calcForceExertedBy(a)*(a.yyPos-this.yyPos)/calacDistance(a);
 		return forceY;
 	}
+
+	public double calcNetForceExertedByX(Planet[] allBodys)
+	{
+		int i = 0;
+		double netForce = 0;
+
+		while(i < allBodys.length)
+		{
+			if(! this.equals(allBodys[i]))
+			{
+				netForce += this.calcForceExertedByX(allBodys[i]);
+			}
+			i++;		
+		}
+		return netForce;
+
+	}
+
+	public double calcNetForceExertedByY(Planet[] allBodys)
+	{
+		int i = 0;
+		double netForce = 0;
+
+		while(i < allBodys.length)
+		{
+			if(! this.equals(allBodys[i]))
+			{
+				netForce += this.calcForceExertedByY(allBodys[i]);
+			}
+			i++;		
+		}
+		return netForce;		
+	}
+
+	public void update(double dt,double fX,double fY)
+	{
+		double a_netx = fX/this.mass;
+		double a_nety = fY/this.mass;
+		
+		double v_newx = this.xxVel + a_netx * dt;
+		double v_newy = this.yyVel + a_nety * dt;
+
+		double p_newx = this.xxPos + dt * v_newx;
+		double p_newy = this.yyPos + dt * v_newy;
+
+		this.xxVel = v_newx;
+		this.yyVel = v_newy;
+		this.xxPos = p_newx;
+		this.yyPos = p_newy;
+	}
 }
