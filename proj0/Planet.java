@@ -103,4 +103,9 @@ public class Planet
 		this.xxPos = p_newx;
 		this.yyPos = p_newy;
 	}
+
+	public void draw()
+	{
+		StdDraw.picture(this.xxPos, this.yyPos, "images/"+this.imgFileName);
+	}
 }

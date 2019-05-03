@@ -45,5 +45,12 @@ public class NBody
 		StdDraw.clear();
 		StdDraw.picture(0, 0, "images/starfield.jpg");
 
+		int numberOfPlanets = planets.length;
+		for(int i = 0; i < numberOfPlanets; i++ )
+		{
+			planets[i].draw();
+		}
+
+		enableDoubleBuffering();
 	}
 }
