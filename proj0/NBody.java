@@ -31,8 +31,8 @@ public class NBody
 	}
 	public static void main(String[] args)
 	{
-		Double T = java.lang.Double.pareseDouble(args[0]);
-		Double dt = Double.parseDouble(args[1]);
+		Double T = java.lang.Double.parseDouble(args[0]);
+		Double dt = java.lang.Double.parseDouble(args[1]);
 		String filename = args[2];
 
 		double radius = NBody.readRadius(filename);
